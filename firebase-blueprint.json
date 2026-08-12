@@ -1,0 +1,110 @@
+{
+  "entities": {
+    "User": {
+      "title": "User Profile",
+      "description": "User account details and medical emergency contacts",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "email": { "type": "string" },
+        "name": { "type": "string" },
+        "role": { "type": "string", "enum": ["admin", "patient", "doctor"] },
+        "phone": { "type": "string" },
+        "emergencyContact": { "type": "string" },
+        "avatarUrl": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "email", "name", "role", "createdAt"]
+    },
+    "Appointment": {
+      "title": "Medical Service Appointment",
+      "description": "Air ambulance and consultation booking requests",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "patientName": { "type": "string" },
+        "patientEmail": { "type": "string" },
+        "patientPhone": { "type": "string" },
+        "serviceType": { "type": "string" },
+        "preferredDate": { "type": "string" },
+        "preferredTime": { "type": "string" },
+        "emergencyLevel": { "type": "string" },
+        "notes": { "type": "string" },
+        "status": { "type": "string", "enum": ["pending", "confirmed", "completed", "cancelled"] },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "patientName", "patientEmail", "patientPhone", "serviceType", "status", "createdAt"]
+    },
+    "BlogPost": {
+      "title": "Blog Post",
+      "description": "Medical rescue, air transport, and safety articles",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "slug": { "type": "string" },
+        "categoryId": { "type": "string" },
+        "categoryName": { "type": "string" },
+        "content": { "type": "string" },
+        "excerpt": { "type": "string" },
+        "imageUrl": { "type": "string" },
+        "authorName": { "type": "string" },
+        "authorRole": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["id", "title", "content", "createdAt"]
+    },
+    "Category": {
+      "title": "Blog Category",
+      "description": "Categories for organizing blog articles",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "slug": { "type": "string" },
+        "description": { "type": "string" }
+      },
+      "required": ["id", "name", "slug"]
+    },
+    "UploadedFile": {
+      "title": "Image Asset Record",
+      "description": "Uploaded image asset metadata",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "fileName": { "type": "string" },
+        "originalName": { "type": "string" },
+        "fileSize": { "type": "number" },
+        "mimeType": { "type": "string" },
+        "url": { "type": "string" },
+        "uploadedAt": { "type": "string" },
+        "uploadedBy": { "type": "string" }
+      },
+      "required": ["id", "fileName", "url", "uploadedAt"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "User profile collection"
+    },
+    "/appointments/{appointmentId}": {
+      "schema": "Appointment",
+      "description": "Service appointments collection"
+    },
+    "/posts/{postId}": {
+      "schema": "BlogPost",
+      "description": "Blog posts collection"
+    },
+    "/categories/{categoryId}": {
+      "schema": "Category",
+      "description": "Blog categories collection"
+    },
+    "/files/{fileId}": {
+      "schema": "UploadedFile",
+      "description": "Uploaded image assets metadata collection"
+    }
+  }
+}

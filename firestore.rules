@@ -1,0 +1,70 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Helper functions
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return isSignedIn() && request.auth.uid == userId;
+    }
+
+    function isAdmin() {
+      return isSignedIn() && (
+        request.auth.uid == 'S3XGP2Q58rYulbHQQ1yPgLQraGI3' ||
+        (request.auth.token != null && request.auth.token.email == 'alex@skymedthailand.com') ||
+        (exists(/databases/$(database)/documents/users/$(request.auth.uid)) && 
+         get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin')
+      );
+    }
+
+    // Default admin access catch-all
+    match /{document=**} {
+      allow read, write: if isAdmin();
+    }
+
+    // Users collection
+    match /users/{userId} {
+      // Admin can read/list/write all user records.
+      // Normal user can only read/write their own document.
+      allow read, write: if isOwner(userId) || isAdmin();
+      allow list: if isAdmin();
+    }
+
+    // Appointments collection
+    match /appointments/{appointmentId} {
+      allow read, write: if isAdmin() || (isSignedIn() && (
+        resource == null || 
+        resource.data.userId == request.auth.uid || 
+        resource.data.patientEmail == request.auth.token.email
+      ));
+      allow create: if isSignedIn();
+      allow list: if isAdmin() || (isSignedIn() && (
+        resource.data.userId == request.auth.uid || 
+        resource.data.patientEmail == request.auth.token.email
+      ));
+    }
+
+    // Blog posts collection
+    match /posts/{postId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    // Categories collection
+    match /categories/{categoryId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    // Files metadata collection
+    match /files/{fileId} {
+      allow read: if true;
+      allow write: if isAdmin() || (isSignedIn() && request.resource.data.uploadedBy == request.auth.uid);
+    }
+
+  }
+}

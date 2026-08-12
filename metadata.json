@@ -1,0 +1,6 @@
+{
+  "name": "SkyMed",
+  "description": "SkyMed Emergency Air Rescue & Medical Services portal, appointment booking, and patient management platform.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
