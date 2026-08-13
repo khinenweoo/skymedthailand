@@ -1,0 +1,123 @@
+{
+  "users": [
+    {
+      "id": "S3XGP2Q58rYulbHQQ1yPgLQraGI3",
+      "email": "alex@skymedthailand.com",
+      "password": "password123",
+      "name": "Alex (SkyMed Admin)",
+      "role": "admin",
+      "phone": "+66 2 123 4567",
+      "emergencyContact": "SkyMed Medical Operations HQ",
+      "avatarUrl": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=200",
+      "createdAt": "2026-08-13T02:40:13.226Z"
+    }
+  ],
+  "files": [
+    {
+      "id": "f1",
+      "fileName": "skymed-hero-medevac.jpg",
+      "originalName": "Eurocopter-EC135-Medical.jpg",
+      "fileSize": 1048576,
+      "mimeType": "image/jpeg",
+      "url": "https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&q=80&w=800",
+      "uploadedAt": "2026-08-10T02:40:13.228Z",
+      "uploadedBy": "Dr. Sarah Lin"
+    },
+    {
+      "id": "f2",
+      "fileName": "flight-trauma-icu.jpg",
+      "originalName": "Air-Ambulance-Equipment.jpg",
+      "fileSize": 2097152,
+      "mimeType": "image/jpeg",
+      "url": "https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&q=80&w=800",
+      "uploadedAt": "2026-08-12T02:40:13.228Z",
+      "uploadedBy": "Dr. Sarah Lin"
+    }
+  ],
+  "categories": [
+    {
+      "id": "c1",
+      "name": "Emergency Rescue",
+      "slug": "emergency-rescue",
+      "description": "Air ambulance and remote triage operational updates."
+    },
+    {
+      "id": "c2",
+      "name": "Air Medevac",
+      "slug": "air-medevac",
+      "description": "Helicopter rescue technology and flight medical standards."
+    },
+    {
+      "id": "c3",
+      "name": "Health & Safety",
+      "slug": "health-safety",
+      "description": "Trauma response tips and immediate first aid guides."
+    },
+    {
+      "id": "c4",
+      "name": "Patient Stories",
+      "slug": "patient-stories",
+      "description": "Inspirational journeys of recovery and rescue."
+    }
+  ],
+  "posts": [
+    {
+      "id": "p1",
+      "title": "How SkyMed Air Helicopters Reach Critical Patients in Under 15 Minutes",
+      "slug": "how-skymed-helicopters-reach-critical-patients",
+      "categoryId": "c1",
+      "categoryName": "Emergency Rescue",
+      "excerpt": "Explore the satellite positioning systems, pre-flight protocols, and urban helipad networks that make rapid air medical response possible.",
+      "content": "When minutes mean the difference between life and death, SkyMed’s rapid dispatch network activates in seconds. Our state-of-the-art Eurocopter and AgustaWestland medical fleet stays staged at high-readiness helipads equipped with satellite telemetry.\n\nUpon receiving an emergency signal, our trauma dispatch team analyzes real-time weather, air space clearance, and hospital landing zones while the flight crew boards. Within 12 to 15 minutes, our flying ICU arrives at the scene to deliver life-saving resuscitation.",
+      "imageUrl": "https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&q=80&w=800",
+      "authorName": "Capt. James Miller",
+      "authorRole": "Head of Aviation Operations",
+      "createdAt": "2026-08-11T02:40:13.228Z",
+      "updatedAt": "2026-08-11T02:40:13.228Z"
+    },
+    {
+      "id": "p2",
+      "title": "Inside the SkyMed Flying ICU: Advanced Life Support in the Clouds",
+      "slug": "inside-the-skymed-flying-icu",
+      "categoryId": "c2",
+      "categoryName": "Air Medevac",
+      "excerpt": "Take a virtual tour of our medical helicopters equipped with ECMO machines, ventilators, and real-time vital telemetry systems.",
+      "content": "Transporting critical patients by air requires portable medical technology engineered for high-altitude stabilization. Each SkyMed aircraft functions as a complete ICU suite including blood gas analyzers, syringe pumps, invasive arterial monitoring, and portable ECMO circuits.\n\nOur onboard telemetry directly relays real-time cardiac graphs and blood chemistry directly to receiving trauma surgery centers before landing.",
+      "imageUrl": "https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&q=80&w=800",
+      "authorName": "Dr. Sarah Lin",
+      "authorRole": "Flight Medical Director",
+      "createdAt": "2026-08-08T02:40:13.228Z",
+      "updatedAt": "2026-08-08T02:40:13.228Z"
+    },
+    {
+      "id": "p3",
+      "title": "Wilderness & Alpine Emergency Preparation: What to Do While Flight Arrives",
+      "slug": "wilderness-alpine-emergency-prep",
+      "categoryId": "c3",
+      "categoryName": "Health & Safety",
+      "excerpt": "Essential steps for outdoor enthusiasts to signal rescue aircraft, prepare landing clearings, and maintain thermal protection.",
+      "content": "If an emergency occurs in remote alpine or off-grid environments, knowing how to communicate with air rescue teams is vital. Signal with high-contrast gear or strobe lights, identify wind direction, and keep clear of rotor zones until signaled by flight paramedics.",
+      "imageUrl": "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=800",
+      "authorName": "Mark Sterling",
+      "authorRole": "Senior Rescue Paramedic",
+      "createdAt": "2026-08-04T02:40:13.228Z",
+      "updatedAt": "2026-08-04T02:40:13.228Z"
+    }
+  ],
+  "appointments": [
+    {
+      "id": "a1",
+      "userId": "u2",
+      "patientName": "Marcus Vandergrift",
+      "patientEmail": "patient@skymed.com",
+      "patientPhone": "+1 (555) 987-6543",
+      "serviceType": "Urgent Video & Phone Consultation",
+      "preferredDate": "2026-08-14",
+      "preferredTime": "10:00 AM",
+      "emergencyLevel": "urgent",
+      "notes": "Follow up post-hospital discharge for flight trauma evaluation.",
+      "status": "confirmed",
+      "createdAt": "2026-08-13T02:40:13.228Z"
+    }
+  ]
+}

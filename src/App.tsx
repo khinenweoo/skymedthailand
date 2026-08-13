@@ -13,15 +13,38 @@ import { Footer } from './components/Footer';
 import { AppointmentModal } from './components/AppointmentModal';
 import { AuthModal } from './components/AuthModal';
 import { DashboardView } from './components/Dashboard/DashboardView';
+import { AboutPage } from './components/pages/AboutPage';
+import { ServicesPage } from './components/pages/ServicesPage';
+import { ContactPage } from './components/pages/ContactPage';
+import { View, pathToView, viewToPath } from './routes';
 
 export default function App() {
   const [user, setUser] = useState<User | null>(null);
   const [token, setToken] = useState<string | null>(localStorage.getItem('skymed_token'));
-  const [currentView, setCurrentView] = useState<'landing' | 'dashboard'>('landing');
+  const [currentView, setCurrentView] = useState<View>(() =>
+    pathToView(window.location.pathname)
+  );
 
   // Modal States
   const [isAuthOpen, setIsAuthOpen] = useState(false);
   const [isBookingOpen, setIsBookingOpen] = useState(false);
+
+  // Client-side navigation: keeps the URL, history and view state in one place.
+  const navigate = (view: View) => {
+    const path = viewToPath(view);
+    if (window.location.pathname !== path) {
+      window.history.pushState({}, '', path);
+    }
+    setCurrentView(view);
+    window.scrollTo({ top: 0, behavior: 'auto' });
+  };
+
+  // Browser back / forward buttons.
+  useEffect(() => {
+    const onPopState = () => setCurrentView(pathToView(window.location.pathname));
+    window.addEventListener('popstate', onPopState);
+    return () => window.removeEventListener('popstate', onPopState);
+  }, []);
 
   useEffect(() => {
     if (token) {
@@ -58,74 +81,93 @@ export default function App() {
     setUser(null);
     setToken(null);
     localStorage.removeItem('skymed_token');
-    setCurrentView('landing');
+    navigate('landing');
   };
+
+  const openBooking = () => setIsBookingOpen(true);
 
   return (
     <div className="min-h-screen font-sans bg-white text-slate-900 selection:bg-indigo-100 selection:text-indigo-900">
-      
+
       {currentView === 'dashboard' && user ? (
         <DashboardView
           user={user}
           onLogout={handleLogout}
-          onNavigateHome={() => setCurrentView('landing')}
+          onNavigateHome={() => navigate('landing')}
           onUpdateUser={(updated) => setUser(updated)}
-          onOpenBookingModal={() => setIsBookingOpen(true)}
+          onOpenBookingModal={openBooking}
         />
       ) : (
         <>
-          {/* Header Navigation */}
+          {/* Header Navigation (shared by every public page) */}
           <Navbar
             user={user}
             onOpenAuth={() => setIsAuthOpen(true)}
-            onOpenBooking={() => setIsBookingOpen(true)}
-            onOpenDashboard={() => setCurrentView('dashboard')}
+            onOpenBooking={openBooking}
+            onOpenDashboard={() => navigate('dashboard')}
             onLogout={handleLogout}
             currentView={currentView}
-            onNavigateHome={() => setCurrentView('landing')}
+            onNavigate={navigate}
           />
 
-          {/* Main Landing Sections */}
-          <main>
-            {/* 2. Hero Section */}
-            <HeroSection
-              onOpenBooking={() => setIsBookingOpen(true)}
-              onExploreServices={() => {
-                const el = document.getElementById('services');
-                el?.scrollIntoView({ behavior: 'smooth' });
-              }}
+          {currentView === 'about' ? (
+            <AboutPage
+              onOpenBooking={openBooking}
+              onNavigateHome={() => navigate('landing')}
+              onNavigateContact={() => navigate('contact')}
             />
-
-            {/* 3. About Section (Navy band, 2-cell collage, back to top) */}
-            <AboutSection
-              onOpenBooking={() => setIsBookingOpen(true)}
+          ) : currentView === 'services' ? (
+            <ServicesPage
+              onOpenBooking={openBooking}
+              onNavigateHome={() => navigate('landing')}
+              onNavigateContact={() => navigate('contact')}
             />
-
-            {/* 4. Services (4-column grid with icon in lavender square) */}
-            <ServicesSection
-              onOpenBooking={() => setIsBookingOpen(true)}
+          ) : currentView === 'contact' ? (
+            <ContactPage
+              user={user}
+              onOpenBooking={openBooking}
+              onNavigateHome={() => navigate('landing')}
             />
+          ) : (
+            /* Main Landing Sections */
+            <main>
+              {/* 2. Hero Section */}
+              <HeroSection
+                onOpenBooking={openBooking}
+                onExploreServices={() => navigate('services')}
+              />
 
-            {/* 5. Urgent Consultations (Muted indigo band, checklist with accent bullet dots) */}
-            <UrgentConsultationsSection
-              onOpenBooking={() => setIsBookingOpen(true)}
-            />
+              {/* 3. About Section (Navy band, 2-cell collage, back to top) */}
+              <AboutSection
+                onOpenBooking={openBooking}
+              />
 
-            {/* 6. Testimonials (Pale lavender, serif heading, stacked testimonials) */}
-            <TestimonialsSection />
+              {/* 4. Services (4-column grid with icon in lavender square) */}
+              <ServicesSection
+                onOpenBooking={openBooking}
+              />
 
-            {/* 7. Unique Value Propositions (Serif heading, tall photo, numbered list 01, 02...) */}
-            <ValuePropositionsSection />
+              {/* 5. Urgent Consultations (Muted indigo band, checklist with accent bullet dots) */}
+              <UrgentConsultationsSection
+                onOpenBooking={openBooking}
+              />
 
-            {/* 8. Frequently Asked Questions Section */}
-            <FaqSection onOpenBooking={() => setIsBookingOpen(true)} />
+              {/* 6. Testimonials (Pale lavender, serif heading, stacked testimonials) */}
+              <TestimonialsSection />
 
-            {/* Live Blog & Medical Articles Section */}
-            <BlogLandingSection />
-          </main>
+              {/* 7. Unique Value Propositions (Serif heading, tall photo, numbered list 01, 02...) */}
+              <ValuePropositionsSection />
+
+              {/* 8. Frequently Asked Questions Section */}
+              <FaqSection onOpenBooking={openBooking} />
+
+              {/* Live Blog & Medical Articles Section */}
+              <BlogLandingSection />
+            </main>
+          )}
 
           {/* 8. Footer (Deep navy, 4 columns, copyright bar) */}
-          <Footer />
+          <Footer onNavigate={navigate} />
         </>
       )}
 

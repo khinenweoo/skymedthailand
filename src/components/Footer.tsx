@@ -1,7 +1,28 @@
 import React from 'react';
 import { Phone, Mail, MapPin, Facebook, Twitter, Youtube, Linkedin } from 'lucide-react';
+import { View, viewToPath } from '../routes';
 
-export const Footer: React.FC = () => {
+interface FooterProps {
+  onNavigate?: (view: View) => void;
+}
+
+const QUICK_LINKS: { label: string; view: View }[] = [
+  { label: 'Home', view: 'landing' },
+  { label: 'About Us', view: 'about' },
+  { label: 'Services', view: 'services' },
+  { label: 'Contact', view: 'contact' },
+];
+
+export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
+  const linkProps = (view: View) => ({
+    href: viewToPath(view),
+    onClick: (e: React.MouseEvent) => {
+      if (!onNavigate || e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
+      e.preventDefault();
+      onNavigate(view);
+    },
+  });
+
   return (
     <footer className="bg-[#1E2856] text-white pt-16 pb-8 border-t border-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -27,11 +48,13 @@ export const Footer: React.FC = () => {
               Quick Links
             </h4>
             <ul className="space-y-3 text-sm text-slate-300">
-              <li><a href="#home" className="hover:text-white transition-colors">Home</a></li>
-              <li><a href="#about" className="hover:text-white transition-colors">About Us</a></li>
-              <li><a href="#services" className="hover:text-white transition-colors">Services</a></li>
-              <li><a href="#faq" className="hover:text-white transition-colors">Pricing & FAQ</a></li>
-              <li><a href="#contact" className="hover:text-white transition-colors">Contact</a></li>
+              {QUICK_LINKS.map(({ label, view }) => (
+                <li key={view}>
+                  <a {...linkProps(view)} className="hover:text-white transition-colors">
+                    {label}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
