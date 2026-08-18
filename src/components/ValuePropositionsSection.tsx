@@ -43,13 +43,13 @@ export const ValuePropositionsSection: React.FC = () => {
 						</div>
 					</div>
 
-					{/* Right Column: Doctor Consultation Photo with Floating Royal Blue Card */}
+					{/* Right Column: Critical Care Crew Photo with Floating Royal Blue Card */}
 					<div className='lg:col-span-6 relative'>
 						<div className='rounded-[32px] overflow-hidden shadow-xl bg-slate-100 aspect-[4/3] border-4 border-white'>
 							<img
-								src='/images/clinic.jpg'
-								alt='SkyMed Doctor Consultation'
-								className='w-full h-full object-fit'
+								src='/images/clinic.png'
+								alt='SkyMed critical care crew treating a patient beside an air ambulance'
+								className='w-full h-full object-cover'
 								referrerPolicy='no-referrer'
 							/>
 						</div>

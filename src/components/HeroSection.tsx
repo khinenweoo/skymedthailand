@@ -54,8 +54,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 						<p className='text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl font-normal'>
 							When seconds count, SkyMed Thailand delivers rapid helicopter
 							rescue, airborne intensive care, and expert physician dispatch
-							across Thailand and Southeast Asia with calm, unyielding
-							precision.
+							across Thailand and we are partnering with government to do the
+							services.
 						</p>
 
 						{/* Action Buttons */}

@@ -201,9 +201,6 @@ export const ContactPage: React.FC<ContactPageProps> = ({
 						{/* Form card */}
 						<div className='lg:col-span-7'>
 							<div className='bg-white rounded-[32px] border border-slate-100 shadow-sm p-6 sm:p-10'>
-								<span className='inline-block bg-blue-50 text-[#2563EB] text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-wider border border-blue-100 mb-4'>
-									Send an enquiry
-								</span>
 								<h2 className='text-2xl sm:text-3xl font-black text-slate-900 tracking-tight'>
 									Tell us what you need
 								</h2>

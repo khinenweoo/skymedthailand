@@ -277,7 +277,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
 			</section>
 
 			{/* Timeline */}
-			<section className='bg-slate-50 py-16 sm:py-24 border-y border-slate-100'>
+			{/* <section className='bg-slate-50 py-16 sm:py-24 border-y border-slate-100'>
 				<div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
 					<div className='max-w-3xl mb-14'>
 						<h2 className='text-3xl sm:text-4xl font-black text-[#1E293B] tracking-tight'>
@@ -307,7 +307,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
 						))}
 					</div>
 				</div>
-			</section>
+			</section> */}
 
 			{/* CTA */}
 			<section className='relative isolate overflow-hidden'>
