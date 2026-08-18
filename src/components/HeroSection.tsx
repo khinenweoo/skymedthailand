@@ -60,19 +60,19 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
 						{/* Action Buttons */}
 						<div className='flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2'>
-							<button
+							{/* <button
 								onClick={onOpenBooking}
 								className='inline-flex items-center justify-center gap-2 bg-[#2563EB] hover:bg-[#1D4ED8] text-white border border-[#2563EB] px-7 py-3 rounded-full text-base font-semibold shadow-md transition-all active:scale-95'
 							>
 								<span>Request Air Emergency</span>
 								<ArrowRight className='w-5 h-5' />
-							</button>
+							</button> */}
 
 							<button
 								onClick={onExploreServices}
 								className='inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-50 text-[#2563EB] border border-[#2563EB] px-7 py-3 rounded-full text-base font-semibold transition-all active:scale-95'
 							>
-								<span>Emergency Helpline</span>
+								<span>Emergency Information</span>
 								<ArrowRight className='w-5 h-5' />
 							</button>
 						</div>

@@ -46,16 +46,6 @@ export const UrgentConsultationsSection: React.FC<
 							thoughtful support, and elevated standards from first contact to
 							recovery.
 						</p>
-
-						<div>
-							<button
-								onClick={onOpenBooking}
-								className='inline-flex items-center justify-center gap-2 border border-white/60 text-white hover:bg-white/10 px-7 py-3 rounded-full text-sm font-semibold transition-all active:scale-95'
-							>
-								<span>Meet Skymed</span>
-								<ArrowRight className='w-4 h-4' />
-							</button>
-						</div>
 					</div>
 				</div>
 			</div>

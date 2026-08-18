@@ -75,7 +75,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             onClick={onOpenBooking}
             className="inline-flex items-center gap-1.5 border border-[#2563EB] text-[#2563EB] hover:bg-[#2563EB] hover:text-white px-4 py-1.5 rounded-full text-xs font-bold transition-all active:scale-95 shadow-sm"
           >
-            <span>Appointment</span>
+            <span>Inquiry</span>
             <ArrowRight className="w-3.5 h-3.5" />
           </button>
 
@@ -143,7 +143,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               }}
               className="mt-2 inline-flex items-center justify-center gap-1.5 bg-[#2563EB] hover:bg-[#1D4ED8] text-white px-4 py-2.5 rounded-full text-xs font-bold transition-all active:scale-95"
             >
-              <span>Book Appointment</span>
+              <span>Send an Inquiry</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </button>
 

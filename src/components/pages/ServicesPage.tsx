@@ -16,6 +16,7 @@ import {
   CheckCircle2,
 } from 'lucide-react';
 import { PageHero } from './PageHero';
+import { AvailabilityDisclaimer } from '../AvailabilityDisclaimer';
 
 interface ServicesPageProps {
   onOpenBooking: () => void;
@@ -122,7 +123,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
 
       {/* Quick assurance strip */}
       <section className="border-b border-slate-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 grid grid-cols-1 sm:grid-cols-3 gap-6">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 grid grid-cols-1 sm:grid-cols-3 gap-6">
           {[
             { icon: Clock, label: '24/7 dispatch', sub: 'Never closed, never queued' },
             { icon: Radio, label: 'Single coordinator', sub: 'One owner per mission' },
@@ -138,6 +139,11 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Qualifies the 24/7 dispatch item in the strip above. */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-8">
+          <AvailabilityDisclaimer className="mt-6" />
         </div>
       </section>
 
@@ -290,7 +296,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
                   onClick={onOpenBooking}
                   className="inline-flex items-center justify-center gap-2 bg-[#2563EB] hover:bg-[#1D4ED8] text-white px-8 py-3.5 rounded-full text-sm font-bold transition-all active:scale-95 shadow-md"
                 >
-                  <span>Book a Consultation</span>
+                  <span>Send an Inquiry</span>
                   <ArrowRight className="w-4 h-4" />
                 </button>
                 <button
@@ -337,7 +343,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
               onClick={onOpenBooking}
               className="inline-flex items-center justify-center gap-2 border border-white/70 text-white hover:bg-white/10 px-8 py-3.5 rounded-full text-sm font-bold transition-all active:scale-95"
             >
-              <span>Schedule Non-Urgent Transfer</span>
+              <span>Send a Non-Urgent Inquiry</span>
               <ArrowRight className="w-4 h-4" />
             </button>
           </div>

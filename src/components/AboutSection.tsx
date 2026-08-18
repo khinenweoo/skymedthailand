@@ -96,17 +96,17 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
 					<div className='lg:col-span-6 space-y-6 pt-6 lg:pt-0'>
 						{/* Headline */}
 						<h2 className='text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-[1.12]'>
-							Emergency Air Transport With Uncompromised Medical Precision
+							When Every Minute Counts, We're Already In The Air
 						</h2>
 
 						{/* Main Narrative Paragraph */}
 						<p className='text-slate-600 text-base sm:text-lg leading-relaxed'>
-							Founded on the belief that distance should never compromise
-							critical healthcare, SkyMed operates a premier network of air
-							ambulances and airborne ICU units across Thailand. Our
-							board-certified flight surgeons, trauma paramedics, and aviation
-							crew work in seamless harmony to deliver hospital-grade intensive
-							care from the moment of lift-off.
+							An emergency rarely happens somewhere convenient. It happens on an
+							island, on a mountain road, hours from the nearest hospital.
+							SkyMed exists for exactly those moments — a network of air
+							ambulances and airborne ICU units across Thailand, crewed by
+							emergency doctors, critical care paramedics and pilots who treat
+							your family the way they would want their own treated.
 						</p>
 
 						{/* Feature Highlights Grid */}
@@ -117,11 +117,11 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
 								</div>
 								<div>
 									<h4 className='text-sm font-bold text-slate-900'>
-										Turbine Medevac Fleet
+										A Hospital That Flies
 									</h4>
 									<p className='text-xs text-slate-500 mt-0.5'>
-										Helicopters equipped with full airborne ICU life-support
-										suites.
+										Helicopters fitted with full ICU life-support, so care never
+										pauses.
 									</p>
 								</div>
 							</div>
@@ -132,11 +132,11 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
 								</div>
 								<div>
 									<h4 className='text-sm font-bold text-slate-900'>
-										Flight ICU Surgeons
+										A Doctor Beside You
 									</h4>
 									<p className='text-xs text-slate-500 mt-0.5'>
-										Senior doctors on board for cardiac, trauma, and pediatric
-										care.
+										Emergency physicians on board for cardiac, trauma and
+										children's care.
 									</p>
 								</div>
 							</div>
@@ -145,9 +145,9 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
 						{/* Checklist */}
 						<div className='space-y-2.5 pt-1'>
 							{[
-								"Direct hospital helipad clearance & pre-arrival trauma unit staging",
-								"Seamless insurance billing & international travel health coordination",
-								"Comprehensive ground ambulance connection for door-to-door transfers",
+								"We land on the hospital helipad, with the trauma team already waiting",
+								"We handle the insurance paperwork so your family doesn't have to",
+								"Ground ambulances at both ends — we take it from door to door",
 							].map((text, i) => (
 								<div
 									key={i}
@@ -197,20 +197,20 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
 					</p>
 
 					<div className='mt-8 flex flex-col sm:flex-row items-center justify-center gap-4'>
-						<a
+						{/* <a
 							href='tel:+6622067153'
 							className='inline-flex items-center justify-center gap-2 bg-white text-[#2563EB] hover:bg-blue-50 px-8 py-3.5 rounded-full text-sm font-bold transition-all active:scale-95 shadow-md'
 						>
 							<span>Call +66 2 206 7153</span>
 							<ArrowRight className='w-4 h-4' />
-						</a>
+						</a> */}
 
 						{onOpenBooking && (
 							<button
 								onClick={onOpenBooking}
 								className='inline-flex items-center justify-center gap-2 border border-white/70 text-white hover:bg-white/10 px-8 py-3.5 rounded-full text-sm font-bold transition-all active:scale-95'
 							>
-								<span>Book Online Consultation</span>
+								<span>Send an Inquiry</span>
 								<ArrowRight className='w-4 h-4' />
 							</button>
 						)}

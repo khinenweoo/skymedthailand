@@ -150,7 +150,7 @@ export const AppointmentsTab: React.FC<AppointmentsTabProps> = ({ user, onOpenBo
               className="inline-flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold px-4 py-2.5 rounded-2xl shadow-md shadow-indigo-200 transition-all"
             >
               <PlusCircle className="w-4 h-4" />
-              <span>Book Appointment</span>
+              <span>New Inquiry</span>
             </button>
           )}
 
@@ -239,7 +239,7 @@ export const AppointmentsTab: React.FC<AppointmentsTabProps> = ({ user, onOpenBo
                 className="mt-4 inline-flex items-center gap-2 bg-indigo-600 text-white font-bold text-xs px-5 py-2.5 rounded-2xl shadow-md transition-all hover:bg-indigo-700"
               >
                 <PlusCircle className="w-4 h-4" />
-                <span>Book Your First Appointment</span>
+                <span>Send Your First Inquiry</span>
               </button>
             )}
           </div>
